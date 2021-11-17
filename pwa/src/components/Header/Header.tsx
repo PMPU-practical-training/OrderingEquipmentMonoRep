@@ -4,12 +4,18 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Button, { ButtonTheme } from '../../ui/Button/Button';
 import ButtonWthIcon, { ButtonThemeIcn } from '../../ui/ButtonWthIcn/Button';
+import { logoutUser } from '@store/thunks/user';
 import Title from '../../ui/Title/Title';
 import styles from './Header.scss';
 
 export interface HeaderProps {
   isInteractive?: boolean;
 }
+
+
+const handleLogout = async () => {
+  logoutUser();
+};
 
 export const Header = (props: HeaderProps): React.ReactElement => {
   const { isInteractive } = props;
@@ -23,6 +29,12 @@ export const Header = (props: HeaderProps): React.ReactElement => {
       {isInteractive && (
         <>
           <Button
+            onClick={handleLogout}
+            className={styles.Button}
+            name="Выйти"
+            theme={ButtonTheme.Dark}
+          />
+          <Button
             onClick={() => history.push('/')}
             className={styles.Button}
             name="Каталог"
@@ -31,6 +43,7 @@ export const Header = (props: HeaderProps): React.ReactElement => {
           <div className={styles.Find}>
             <Find />
           </div>
+
           <ButtonWthIcon
             onClick={() => history.push('/cart')}
             className={styles.Purchase + ' ' + styles.Icon_size}

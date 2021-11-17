@@ -1,4 +1,4 @@
-import { authenticateUser, verifyToken } from '@store/thunks/user';
+import { authenticateUser, verifyToken, logoutUser } from '@store/thunks/user';
 import { createSlice } from '@reduxjs/toolkit';
 import { UserRole, IEditor, IAdmin, IExpert, IPurchaser } from 'shared/entities/User';
 import { IMongooseIdentifiable } from 'shared/entities/Base';
@@ -89,6 +89,28 @@ export const userSlice = createSlice({
     builder.addCase(verifyToken.fulfilled, (state, action) => {
       state.data = action.payload;
       state.authStatus.isAuthenticated = true;
+      state.loading = LoadingStatus.Complete;
+    });
+    builder.addCase(logoutUser.pending, (state, _) => {
+      state.authStatus = {
+        isAuthenticated: false,
+        jwt: '',
+      };
+      state.loading = LoadingStatus.Ongoing;
+    });
+    builder.addCase(logoutUser.rejected, (state, action) => {
+      state.authStatus = {
+        error: action.payload as string,
+        isAuthenticated: false,
+        jwt: '',
+      };
+      state.loading = LoadingStatus.Complete;
+    });
+    builder.addCase(logoutUser.fulfilled, (state, action) => {
+      state.authStatus = {
+        isAuthenticated: false,
+        jwt: '',
+      };
       state.loading = LoadingStatus.Complete;
     });
   },

@@ -9,7 +9,7 @@ export const Footer = (): React.ReactElement => (
         Управление-служба информационных технологий
       </a>
       <a href="https://spbu.ru/" className={styles.Container__text}>
-        Санкт-Петербургский государственный университет<span>, 2020 </span>
+        Санкт-Петербургский государственный университет<span>, 2021 </span>
       </a>
     </div>
   </>
