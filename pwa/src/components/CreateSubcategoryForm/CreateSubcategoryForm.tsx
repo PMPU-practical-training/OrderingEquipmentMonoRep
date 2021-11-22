@@ -1,17 +1,17 @@
-import { RootState } from '@store';
-import { categoryNameValidationSchema } from '@utils/validationSchemas';
+import {RootState} from '@store';
+import {categoryNameValidationSchema} from '@utils/validationSchemas';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from '@ui/Form/Form.scss';
-import { createCategory, createSubcategory } from '@store/thunks/catalogue';
-import { Input } from '@ui/Input/Input';
-import Button, { ButtonTheme } from '@ui/Button/Button';
-import ButtonWthIcon, { ButtonThemeIcn } from '@ui/ButtonWthIcn/Button';
-import { IconName } from '@ui/Icon/icons';
-import { v4 as uuidv4 } from 'uuid';
-import { SubcategoryInputField } from '@components/SubcategoryInputField/SubcategoryInputField';
-import { ICategorySpecification, SpecificationType } from 'shared/entities/Specification';
-import { Redirect, useParams } from 'react-router-dom';
+import {createSubcategory} from '@store/thunks/catalogue';
+import {Input} from '@ui/Input/Input';
+import Button, {ButtonTheme} from '@ui/Button/Button';
+import ButtonWthIcon, {ButtonThemeIcn} from '@ui/ButtonWthIcn/Button';
+import {IconName} from '@ui/Icon/icons';
+import {v4 as uuidv4} from 'uuid';
+import {SubcategoryInputField} from '@components/SubcategoryInputField/SubcategoryInputField';
+import {SpecificationType} from  '../../shared/entities/Specification';//'shared/entities/Specification';
+import {Redirect, useParams} from 'react-router-dom';
 
 interface BaseSubcategorySpecification {
   id?: string;

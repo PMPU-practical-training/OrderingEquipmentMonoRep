@@ -13,6 +13,7 @@ export const createOrder = createAsyncThunk('order/create', async (order: ReqCre
   const response = await orderService.createOrder(order, jwt);
 
   if (response instanceof SuccessResponse) {
+    window.alert("Успешно создано!")
     dispatch(getDocument(response.data.id));
     return response.data;
   }

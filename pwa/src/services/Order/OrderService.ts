@@ -8,7 +8,7 @@ export class OrderService extends Service {
   }
 
   public async getDocument(orderId: string, token: string): Promise<void> {
-    window.location.href = `localhost:3000/order/${orderId}/document`;
+    window.location.href = `http://localhost:3000/order/${orderId}/document`;
   }
 
   public async getUserOrders(userId: string, token: string): Promise<Response> {

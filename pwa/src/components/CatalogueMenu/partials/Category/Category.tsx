@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from '@ui/Link/Link';
 import { useHistory } from 'react-router-dom';
+import { IParentCategory, ISubcategory, CategoryType } from '../../../../shared/entities/Category';
 import styles from './Category.scss';
-import { IParentCategory, ISubcategory, CategoryType } from 'shared/entities/Category';
 
 export type CategoryProps = IParentCategory | (ISubcategory & { parentId: string });
 

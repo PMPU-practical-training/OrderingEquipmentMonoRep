@@ -93,7 +93,3 @@ export const verifyToken = createAsyncThunk('user/verifyToken', async (_, { getS
     return rejectWithValue('Период аутентификации истек. Необходимо войти заново.');
   }
 });
-
-export const logoutUser = createAsyncThunk('user/logout', async (_, { getState }) => {
-  localStorage.removeItem('token');
-});

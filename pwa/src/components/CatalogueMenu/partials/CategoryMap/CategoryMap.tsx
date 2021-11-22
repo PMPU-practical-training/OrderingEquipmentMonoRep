@@ -1,9 +1,9 @@
 import React from 'react';
 import { Category } from '../Category/Category';
 import styles from './CategoryMap.scss';
-import { ICategoryGroup } from 'shared/entities/Category';
+import { ICategoryGroup } from '../../../../shared/entities/Category'; // shared/entities/Category
 import { useDispatch, useSelector } from 'react-redux';
-import { UserRole } from 'shared/entities/User';
+import { UserRole } from '../../../../shared/entities/User';
 import { RootState } from '@store';
 import Button, { ButtonTheme } from '@ui/Button/Button';
 import { useHistory } from 'react-router-dom';
