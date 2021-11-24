@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 import styles from './AuthForm.scss';
 import { passwordValidationSchema, usernameValidationSchema } from '@utils/validationSchemas';
 
-export const AuthForm: React.FC = () => {
+export const AuthForm: () => (JSX.Element) = () => {
   const [username, setUsername] = React.useState('');
   const [userError, setUserError] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -25,18 +25,13 @@ export const AuthForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      await usernameValidationSchema.validate(username);
-    } catch (err) {
-      setUserError(err.errors.join(''));
-      return;
-    }
+
 
     try {
       await passwordValidationSchema.validate(password);
     } catch (err) {
       setPasswordError(err.errors.join(''));
-      return;
+      return('Неверное имя пользователя или пароль');
     }
 
     dispatch(authenticateUser({ username, password }));
@@ -45,6 +40,7 @@ export const AuthForm: React.FC = () => {
   if (isAuthenticated) {
     return <Redirect to="/" />;
   }
+
 
   return (
     <div className={styles.Container}>
