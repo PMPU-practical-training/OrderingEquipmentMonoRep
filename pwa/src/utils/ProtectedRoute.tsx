@@ -29,7 +29,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = connector((props: P
   const { exact, path, component: Component } = rest;
 
   if (loading !== LoadingStatus.Complete) {
-    return <h1>Загрзка...</h1>;
+    return <h1>Загрузка...</h1>;
   }
 
   const isAllowed =
